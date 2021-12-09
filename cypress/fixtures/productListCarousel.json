@@ -1,0 +1,27 @@
+{
+  "header": "Explore our models",
+  "callToAction1": {
+    "name": "Recharge",
+    "path": "/intl/v/cars/recharge"
+  },
+  "callToAction2": {
+    "name": "Mild hybrid cars",
+    "path": "/intl/v/cars/other-powertrains"
+  },
+  "items": {
+    "item1": {
+      "category": "SUV",
+      "modelName": "XC90 Recharge",
+      "rechargeType": "plug-in hybrid",
+      "img": "https://www.volvocars.com/images/v/-/media/project/contentplatform/data/media/my22/car-images/xc90-recharge-my22-responsive.jpg",
+      "link1": {
+        "path": "/intl/v/cars/xc90-hybrid",
+        "name": "Learn"
+      },
+      "link2": {
+        "url": "https://www.volvocars.com/intl/build/xc90-hybrid",
+        "name": "Shop"
+      }
+    }
+  }
+}

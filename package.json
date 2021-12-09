@@ -1,0 +1,30 @@
+{
+  "name": "volvo-test",
+  "version": "1.0.0",
+  "description": "volvo-test",
+  "main": "index.js",
+  "scripts": {
+    "cy:open": "cypress open",
+    "lint": "eslint --fix",
+    "format": "prettier --ignore-path .gitignore --write \"**/*.+(js|json)\"",
+    "cy:open:desktop": "cypress open --config viewportWidth=1536,viewportHeight=960",
+    "cy:open:mobile": "cypress open --config viewportWidth=375,viewportHeight=812",
+    "cy:run:e2e:desktop:chrome": "cypress run --record --key 688485ef-07c4-46cd-80c0-58a4f21c1e01 --headless --browser chrome --config viewportWidth=1536,viewportHeight=960",
+    "cy:run:e2e:desktop:firefox": "cypress run --record --key 688485ef-07c4-46cd-80c0-58a4f21c1e01 --headless --browser firefox --config viewportWidth=1536,viewportHeight=960"
+  },
+  "keywords": [
+    "volvo",
+    "test"
+  ],
+  "author": "Vladimir Stantic",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^8.3.1",
+    "cypress-grep": "^2.11.0",
+    "eslint-plugin-cypress": "^2.12.1"
+  },
+  "dependencies": {
+    "eslint": "^8.4.1",
+    "prettier": "^2.5.1"
+  }
+}

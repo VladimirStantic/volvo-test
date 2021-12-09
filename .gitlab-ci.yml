@@ -1,0 +1,44 @@
+# Install Cypress, then run all tests (in parallel)
+stages:
+  - setup
+  - test
+
+# Set environment variables for folders in "cache" job settings for npm modules and Cypress binary
+variables:
+  npm_config_cache: '$CI_PROJECT_DIR/.npm'
+  CYPRESS_CACHE_FOLDER: '$CI_PROJECT_DIR/cache/Cypress'
+
+# Cache using branch name
+# https://gitlab.com/help/ci/caching/index.md
+cache:
+  key: ${CI_COMMIT_REF_SLUG}
+  paths:
+    - .npm
+    - cache/Cypress
+
+# Install NPM dependencies and Cypress
+install:
+  image: cypress/browsers:node16.5.0-chrome94-ff93
+  stage: setup
+
+  script:
+    - npm ci
+    # check Cypress binary path and cached versions
+    - npx cypress cache path
+    - npx cypress cache list
+    - npm run cy:verify
+    - npm run cy:info
+
+chrome-e2e-tests:
+  image: cypress/browsers:node16.5.0-chrome94-ff93
+  stage: test
+  parallel: 3
+  script:
+    - cy:run:e2e:desktop:chrome -- --parallel
+
+firefox-e2e-tests:
+  image: cypress/browsers:node16.5.0-chrome94-ff93
+  stage: test
+  parallel: 3
+  script:
+    - cy:run:e2e:desktop:chrome -- --parallel
